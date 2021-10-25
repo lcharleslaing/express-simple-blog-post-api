@@ -2,12 +2,11 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
-const bodyParser = require("body-parser");
 
 // import routes
 const postRoutes = require("./routes/posts");
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use("/posts", postRoutes);
 
 const db_url = process.env.DATABASE_CONNECTION;
