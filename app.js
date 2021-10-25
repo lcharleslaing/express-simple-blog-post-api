@@ -11,10 +11,12 @@ app.use(bodyParser.json());
 app.use("/posts", postRoutes);
 
 const db_url = process.env.DATABASE_CONNECTION;
+const db_name = process.env.DATABASE_NAME;
+const db_connect = db_url + db_name;
 
 // connect to db
 mongoose.connect(
-  db_url,
+  db_connect,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
